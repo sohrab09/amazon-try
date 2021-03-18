@@ -4,19 +4,24 @@ import fakeData from '../../fakeData';
 import ReviewItem from '../ReviewItem/ReviewItem';
 import Cart from '../Cart/Cart';
 import greetings from '../../images/giphy.gif';
+import { useHistory } from 'react-router';
 
 
 const Review = () => {
     const [cart, setCart] = useState([]);
     const [orderPlaced, setOrderPlaced] = useState(false);
+    const history = useHistory();
 
     //  Place Order  (handlePlacedOrder) add in onclick function
-    const handlePlacedOrder = () => {
-        // for product value add
-        setCart([]);
-        setOrderPlaced(true);
-        // remove item after place order  
-        processOrder();
+    const handleProceedCheckout = () => {
+        history.push("/shipment")
+
+
+        // // for product value add
+        // setCart([]);
+        // setOrderPlaced(true);
+        // // remove item after place order  
+        // processOrder();
     }
 
 
@@ -60,7 +65,7 @@ const Review = () => {
             </div>
             <div className="cart-container">
                 <Cart cart ={cart}>
-                        <button onClick={handlePlacedOrder} className="cart-button">Place Order</button>
+                        <button onClick={handleProceedCheckout} className="cart-button">Proceed Checkout</button>
                 </Cart>
             </div>
             
